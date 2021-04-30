@@ -36,12 +36,12 @@ button::after {
 }
 
 button {
-  background: #6AAFE6;
+  background: #F8FAFF;
   border: 2px solid #000;
   border-radius: 40px;
   color: #000;
   display: block;
-  font-size: 14px;
+  font-size: 16.5px;
   margin: 1em auto;
   padding: 11px 60px;
   position: relative;

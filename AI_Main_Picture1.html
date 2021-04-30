@@ -119,6 +119,7 @@
 <!-- 결과 창 컨데이너 -->
 <p class="result-message"></p>
 <div id="label-container"></div>
+<a class="nav-item nav-link" onclick="copy_to_clipboard()" href="#">친구에게 공유하기</a>
 <!-- 결과 창 컨테이너 끝 -->
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -172,42 +173,42 @@
                switch (prediction[0].className) {
                    case "CEO":
                        resultTitle = "리더, 대표의 품격 'CEO상'"
-                       resultExplain = ""
+                       resultExplain = "리더십이 강하고 많은 사람들을 잘 통솔하며, 주변 사람들의 지지를 받을 수 있는 관상입니다."
                        resultCeleb = "EX) : 이건희, 정용진, 일론 머스크, 구본무, 등"
                        break;
                    case "Athlete":
                        resultTitle = "건강미있고 듬직한 '운동선수상'"
-                       resultExplain = ""
+                       resultExplain = "매우 건강하며 자기관리가 뛰어난, 든든하거나 유연한 운동선수 관상입니다."
                        resultCeleb = "EX) : 손흥민, 박지성, 구자욱, 서장훈, 등"
                        break;
                    case "Singer":
                        resultTitle = "천상의 목소리 '가수상'"
-                       resultExplain = ""
+                       resultExplain = "뛰어난 기교, 타고난 발성. 한눈에 봐도 노래를 잘 부를 것 같은 관상입니다."
                        resultCeleb = "EX) : 김범수, 박효신, 아이유, 벤, 등 "
                        break;
                    case "Comedian":
                        resultTitle = "같이 있으면 웃겨 죽어 '개그맨상'"
-                       resultExplain = ""
+                       resultExplain = "주변 사람들을 행복하게 할 줄 알며, 유머러스함의 정석을 보여주는 개그맨 관상 입니다."
                        resultCeleb = "EX) : 유재석, 양세형, 조세호, 김준현, 등 "
                        break;
                    case "Stateman":
                        resultTitle = "자기주관이 뚜렷한 '정치인상'"
-                       resultExplain = ""
+                       resultExplain = "자신의 삶에 대한 방향이 뚜렷하고 자존감이 강한 정치인 관상입니다."
                        resultCeleb = "EX) : 대통령, 각종 당대표"
                        break;
                    case "Actors":
                        resultTitle = "뚜렷한 이목구비 '배우상'"
-                       resultExplain = ""
+                       resultExplain = "수려한 외모와 뛰어난 감정이입 능력을 겸비한 배우 관상입니다."
                        resultCeleb = "EX) : 정우성, 이정재, 김태희, 전지현, 등"
                        break;
                    case "Doctor":
                        resultTitle = "유능한 엘리트 '의사상'"
-                       resultExplain = ""
+                       resultExplain = "많은 사람들의 건강을 책임지는 똑똑하고 봉사심 강한 의사 관상입니다."
                        resultCeleb = "EX) : 이국종, 안철수, 등"
                        break;
                    case "Idol":
                        resultTitle = "끼가 넘치는 아이돌상"
-                       resultExplain = ""
+                       resultExplain = "사진만 봐도 넘치는 끼를 주체할 수 없는, 다재다능한 아이돌 관상입니다."
                        resultCeleb = "EX) : BTS, 브레이브걸스, EXO, TWICE, 등"
                        break;
                    default:
@@ -262,7 +263,6 @@
               var bar = "<div class='bar-container position-relative container'><div class='" + prediction[i].className + "-box'></div><div class='d-flex justify-content-center align-items-center " + prediction[i].className + "-bar' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + "%</span></div></div>"
               labelContainer.childNodes[i].innerHTML = label + bar;
           }
-
 
         toast("빅데이터를 기반으로 학습한 결과입니다.\n재미로만 봐주세요 :)");
     }

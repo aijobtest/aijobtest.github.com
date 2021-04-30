@@ -21,11 +21,6 @@
     transform: translate(-50%, 0)
 }
 
-#label-container:first-line {
-  font-size : 20px;
-  font-weight: 900;
-  color: #8041D9;
-}
 
 .container-fluid {
   width: 100%;
@@ -38,6 +33,247 @@
 body {
   font-family: 'Yeon Sung', sans-serif;
   background-color: #eeeeee;
+}
+
+
+.footer {
+    background-color: initial;
+    color: initial;
+}
+
+
+.bar-container {
+  height: 2.7rem;
+}
+
+.animal-label {
+    width: 20%;
+    text-align: left;
+    height: 2rem;
+}
+.CEO-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(137, 184, 84, 0.2);
+}
+.CEO-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(137, 184, 84, 1);
+}
+.Athlete-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(117, 204, 84, 0.2);
+}
+.Athlete-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(117, 204, 84, 1);
+}
+.Singer-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(27, 175, 234, 0.2);
+}
+.Singer-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(27, 175, 234, 1);
+}
+.Comedian-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(251, 176, 59, 0.2);
+}
+.Comedian-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(251, 176, 59, 1);
+}
+.Stateman-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(195, 140, 102, 0.2);
+}
+.Stateman-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(195, 140, 102, 1);
+}
+.Actors-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(49, 132, 155, 0.2);
+}
+.Actors-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(49, 132, 155, 1);
+}
+.Idol-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(235, 166, 190, 0.2);
+}
+.Idol-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(235, 166, 190, 1);
+}
+
+.Doctor-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  background-color: rgba(87, 166, 110, 0.2);
+}
+.Doctor-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  border-radius: 10px;
+  background-color: rgba(87, 166, 110, 1);
+}
+.percent-text {
+  font-size: 1rem;
+  color: #ffffff;
+}
+.animal-label {
+    width: 20%;
+    text-align: left;
+    height: 2rem;
+}
+#label-container {
+
+    background-color: #ffffff;
+    width: 90%;
+    border-radius: 8px;
+    margin: 0 auto;
+    padding: 30px;
+
+}
+.result-message {
+    background-color: #ffffff;
+    width: 90%;
+    border-radius: 8px;
+    margin: 0 auto;
+    padding: 30px;
+    font-size: 2rem;
+}
+
+
+.animal-explain {
+    font-size: 1.5rem;
+}
+.CEO-animal-title {
+    color: #3ba363;
+}
+.CEO-animal-celeb {
+    color: #3ba363;
+    font-size: 1.2rem;
+}
+.Athlete-animal-title {
+    color: #3ba363;
+}
+.Athlete-animal-celeb {
+    color: #3ba363;
+    font-size: 1.2rem;
+}
+.Singer-animal-title {
+    color: #ff6c0a;
+}
+.Singer-animal-celeb {
+    color: #ff6c0a;
+    font-size: 1.2rem;
+}
+.Comedian-animal-title {
+    color: #548dd4;
+}
+.Comedian-animal-celeb {
+    color: #548dd4;
+    font-size: 1.2rem;
+}
+.Stateman-animal-title {
+    color: #e56995;
+}
+.Stateman-animal-celeb {
+    color: #e56995;
+    font-size: 1.2rem;
+}
+.Actors-animal-title {
+    color: #9b6b43;
+}
+.Actors-animal-celeb {
+    color: #9b6b43;
+    font-size: 1.2rem;
+}
+.Idol-animal-title {
+    color: #31849b;
+}
+.Idol-animal-celeb {
+    color: #31849b;
+    font-size: 1.2rem;
+}
+.Doctor-animal-title {
+    color: #32229b;
+}
+.Doctor-animal-celeb {
+    color: #32229b;
+    font-size: 1.2rem;
 }
 
 .file-upload {

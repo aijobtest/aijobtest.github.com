@@ -32,8 +32,8 @@
           <div class="text-center">
             <div class="row section-heading justify-content-center">
               <div class="col-md-8 text-center">
-                <h2 class="heading mb-3" style="margin-top : 20px;">AI 얼굴인식</h2>
-                <p class="sub-heading">AI analyzes your face and find a celebrity who looks like you.</p>
+                <h2 class="heading mb-3" style="margin-top : 20px;">나에게 어울리는 직업은?</h2>
+                <p class="sub-heading">인공지능이 사진을 빅데이터에 기반하여 분석한 후<br>내 얼굴에 적합한 직업 관상을 알려줍니다.</p>
               </div>
             </div>
 
@@ -117,7 +117,8 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <!-- 결과 창 컨데이너 -->
-<div id="label-container" style="padding: 0"></div>
+<p class="result-message"></p>
+<div id="label-container"></div>
 <!-- 결과 창 컨테이너 끝 -->
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -160,11 +161,109 @@
         var image = document.getElementById("face-image")
         const prediction = await model.predict(image, false);
         prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+        console.log(prediction[0].className);
         for (let i = 0; i < 6; i++) {
             const classPrediction =
                 prediction[i].className + " 와(과) " + (prediction[i].probability.toFixed(2))*100 + "% 어울리네요!";
             labelContainer.childNodes[i].innerHTML = classPrediction;
         }
+
+        var resultTitle, resultExplain, resultCeleb;
+               switch (prediction[0].className) {
+                   case "CEO":
+                       resultTitle = "리더, 대표의 품격 'CEO상'"
+                       resultExplain = ""
+                       resultCeleb = "EX) : 이건희, 정용진, 일론 머스크, 구본무, 등"
+                       break;
+                   case "Athlete":
+                       resultTitle = "건강미있고 듬직한 '운동선수상'"
+                       resultExplain = ""
+                       resultCeleb = "EX) : 손흥민, 박지성, 구자욱, 서장훈, 등"
+                       break;
+                   case "Singer":
+                       resultTitle = "천상의 목소리 '가수상'"
+                       resultExplain = ""
+                       resultCeleb = "EX) : 김범수, 박효신, 아이유, 벤, 등 "
+                       break;
+                   case "Comedian":
+                       resultTitle = "같이 있으면 웃겨 죽어 '개그맨상'"
+                       resultExplain = ""
+                       resultCeleb = "EX) : 유재석, 양세형, 조세호, 김준현, 등 "
+                       break;
+                   case "Stateman":
+                       resultTitle = "자기주관이 뚜렷한 '정치인상'"
+                       resultExplain = ""
+                       resultCeleb = "EX) : 대통령, 각종 당대표"
+                       break;
+                   case "Actors":
+                       resultTitle = "뚜렷한 이목구비 '배우상'"
+                       resultExplain = ""
+                       resultCeleb = "EX) : 정우성, 이정재, 김태희, 전지현, 등"
+                       break;
+                   case "Doctor":
+                       resultTitle = "유능한 엘리트 '의사상'"
+                       resultExplain = ""
+                       resultCeleb = "EX) : 이국종, 안철수, 등"
+                       break;
+                   case "Idol":
+                       resultTitle = "끼가 넘치는 아이돌상"
+                       resultExplain = ""
+                       resultCeleb = "EX) : BTS, 브레이브걸스, EXO, TWICE, 등"
+                       break;
+                   default:
+                       resultTitle = "알수없음"
+                       resultExplain = ""
+                       resultCeleb = ""
+               }
+
+          var title = "<div class='" + prediction[0].className + "-animal-title'>" + resultTitle + "</div>"
+          var explain = "<div class='animal-explain pt-2'>" + resultExplain + "</div>"
+          var celeb = "<div class='" + prediction[0].className + "-animal-celeb pt-2 pb-2'>" + resultCeleb + "</div>"
+          $('.result-message').html(title + explain + celeb);
+          var barWidth;
+          for (let i = 0; i < maxPredictions; i++) {
+              if (prediction[i].probability.toFixed(2) > 0.1) {
+                  barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + "%";
+              } else if (prediction[i].probability.toFixed(2) >= 0.01) {
+                  barWidth = "7%"
+              } else {
+                  barWidth = "5%"
+              }
+              var labelTitle;
+              switch (prediction[i].className) {
+                  case "CEO":
+                      labelTitle = "CEO상"
+                      break;
+                  case "Athlete":
+                      labelTitle = "운동선수상"
+                      break;
+                  case "Singer":
+                      labelTitle = "가수상"
+                      break;
+                  case "Comedian":
+                      labelTitle = "개그맨상"
+                      break;
+                  case "Stateman":
+                      labelTitle = "정치인상"
+                      break;
+                  case "Actors":
+                      labelTitle = "배우상"
+                      break;
+                  case "Doctor":
+                      labelTitle = "의사상"
+                      break;
+                  case "Idol":
+                      labelTitle = "아이돌상"
+                      break;
+                  default:
+                      labelTitle = "알수없음"
+              }
+              var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
+              var bar = "<div class='bar-container position-relative container'><div class='" + prediction[i].className + "-box'></div><div class='d-flex justify-content-center align-items-center " + prediction[i].className + "-bar' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + "%</span></div></div>"
+              labelContainer.childNodes[i].innerHTML = label + bar;
+          }
+
+
         toast("빅데이터를 기반으로 학습한 결과입니다.\n재미로만 봐주세요 :)");
     }
 </script>
@@ -181,23 +280,6 @@ function copy_to_clipboard() {
 </script>
 
 
-<!-- KAKAO Adfit 광고 스크립트 시작 -->
-<div class="ad_banner">
-<ins class="kakao_ad_area" style="display:none;"
- data-ad-unit    = "DAN-u87yt264pysm"
- data-ad-width   = "320"
- data-ad-height  = "100"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-</div>
-
-<div class="ad_banner">
-<ins class="kakao_ad_area" style="display:none;"
- data-ad-unit    = "DAN-somwvhjo4njk"
- data-ad-width   = "300"
- data-ad-height  = "250"></ins>
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-</div>
-<!-- Adfit 스크립트 끝 -->
   </div>
 </div><!-- .section -->
 
